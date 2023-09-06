@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:27:56 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/05 15:37:32 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:37:04 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int main(int argc, char **argv)
 		}
 		i++;
 	}
-	std::cout << '\n';
+	std::cout << std::endl;
 }

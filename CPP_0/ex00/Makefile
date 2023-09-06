@@ -1,6 +1,6 @@
 SRCS	= megaphone.cpp
 
-OBJS 	= ${SRCS:.c=.o}
+OBJS 	= ${SRCS:.cpp=.o}
 
 NAME 	= megaphone
 
@@ -19,9 +19,9 @@ ${NAME}: 	${OBJS}
 all:		${NAME}
 
 clean:		
-			${RM} ${NAME}
+			${RM} ${OBJS}
 
-fclean: 	
+fclean: 	clean
 			${RM} ${NAME}
 
 re:			fclean all
