@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 18:18:40 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/27 11:46:53 by itovar-n         ###   ########.fr       */
+/*   Created: 2023/09/27 13:29:05 by itovar-n          #+#    #+#             */
+/*   Updated: 2023/09/27 13:50:40 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-Zombie::Zombie()
+# include <iostream>
+
+class Weapon
 {
+	private:
+		std::string type;
 
-}
+	public:
+		Weapon ( std::string type);
+		~Weapon();
+		const std::string &getType();
+		void setType( std::string newtype);
+};
 
-Zombie::~Zombie()
-{
-	std::cout << "Zombie: " << this->name  << " has been destroyed." << std::endl;
-}
-
-void Zombie::announce( void )
-{
-	std::cout << this->name << std::flush;
-	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}	
-
-void Zombie::set_name(std::string name)
-{
-	this->name = name;
-}
+#endif

@@ -5,36 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 18:56:50 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/27 11:59:21 by itovar-n         ###   ########.fr       */
+/*   Created: 2023/09/27 12:07:19 by itovar-n          #+#    #+#             */
+/*   Updated: 2023/09/27 15:05:37 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include <iostream>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-#include "Zombie.hpp"
-
-int main( void ) 
+int main()
 {
-
-    std::string name;
-    int N;
-    int i;
-    Zombie *zombie_horde;
-
-    std::cout << "Creating zombie horde." << std::endl;
-    std::cout << "Zombie name: " << std::flush;
-    std::cin >> name;
-    std::cout << "Number of zombies: " << std::flush;
-    std::cin >> N;
-    std::cout << std::endl;
-    zombie_horde = zombieHorde(N, name);
-    i = 0;
-    while (i < N)
-    {
-        zombie_horde[i].announce();
-        i++;
-    }
-    delete [] zombie_horde;
-
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

@@ -1,10 +1,8 @@
 SRCS	= main.cpp \
-				Zombie.cpp \
-				zombieHorde.cpp 
 
 OBJS 	= ${SRCS:.cpp=.o}
 
-NAME 	= zombiehorde
+NAME 	= this_is_brain
 
 CC		= g++
 

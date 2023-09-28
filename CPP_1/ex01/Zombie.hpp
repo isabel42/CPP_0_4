@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 18:15:13 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/25 15:13:57 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:11:57 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ class Zombie
 		std::string name;
 	
 	public:
-		Zombie( std::string name);
+		Zombie();
 		~Zombie();
+		void set_name(std::string name);
 		void announce( void );
 };
 
 Zombie* zombieHorde( int N, std::string name );
+
 # endif

@@ -1,10 +1,11 @@
 SRCS	= main.cpp \
-				Zombie.cpp \
-				zombieHorde.cpp 
+			Weapon.cpp \
+			HumanA.cpp \
+			HumanB.cpp
 
 OBJS 	= ${SRCS:.cpp=.o}
 
-NAME 	= zombiehorde
+NAME 	= unnecessary_violence
 
 CC		= g++
 
