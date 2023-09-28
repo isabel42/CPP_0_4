@@ -6,23 +6,12 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:03:22 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/11 19:58:57 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:48:54 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook_main.hpp"
 
-// Contact::Contact(std::string f, std::string l, std::string n, std::string ph, std::string d)
-// {
-// 	this->_first_name = f;
-// 	this->_last_name = l;
-// 	this->_nickname = n;
-// 	this->_phone_number = ph;
-// 	this->_darkest_secret = d;
-
-// }
-
-// Contact::Contact(std::string f, std::string l, std::string n, std::string ph, std::string d)
 Contact::Contact()
 {
 
@@ -31,15 +20,6 @@ Contact::Contact()
 Contact::~Contact()
 {
 
-}
-
-void Contact::ft_print(void) const
-{
-	std::cout << "First Name: " << this->_first_name << std::endl;
-	std::cout << "Last Name: " << this->_last_name << std::endl;
-	std::cout << "Nickname: " << this->_nickname << std::endl;
-	std::cout << "Phone Number: " << this->_phone_number << std::endl;
-	std::cout << "Darkest Secret: " << this->_darkest_secret << std::endl;
 }
 
 void Contact::ft_set_values(std::string f, std::string l, std::string n, std::string ph, std::string d)
@@ -96,7 +76,6 @@ std::string Contact::_getInput(std::string str) const
 
 void	Contact::init()
 {
-	std::cin.ignore();
     this->_first_name = this->_getInput("Please enter contact's first name: ");
     this->_last_name = this->_getInput("Please enter contact's last name: ");
     this->_nickname = this->_getInput("Please enter contact's nickname: ");

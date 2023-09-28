@@ -6,11 +6,12 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:27:56 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/06 13:37:04 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:02:35 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
 int main(int argc, char **argv)
 {
@@ -22,12 +23,11 @@ int main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	while (argv[i])
 	{
+		std::string s1 = (std::string)argv[i];
 		j = 0;
-		while (argv[i][j])
+		while (s1[j])
 		{
-			if (argv[i][j] >= 'a' && argv[i][j] <='z')
-				argv[i][j] = argv[i][j] - (97 - 65);
-			std::cout << argv[i][j];
+			std::cout << (char)std::toupper(s1[j]);
 			j++;
 		}
 		i++;

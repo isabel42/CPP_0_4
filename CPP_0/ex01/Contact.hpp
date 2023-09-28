@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:38:51 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/11 19:52:26 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:34:11 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ public:
 
 	// Const before ";" tells that in the function we will never modify the instance's attributes
 	// (No assignation inside, like this.first_name = "John Doe")
-	void ft_print(void) const;
 
 	std::string	get_first_name() const;
 	std::string	get_last_name() const;

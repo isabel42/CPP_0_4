@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook_main.cpp                                 :+:      :+:    :+:   */
+/*   Phonebook_main.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:08:13 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/20 09:54:42 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:26:31 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook_main.hpp"
 #include <stack>
+#include <limits>
 
 
 int main()
 {
-	std::string	input;
+	std::string	input = "";
 	int			count;
 	PhoneBook	pb;
 
-	std::cin >> input;
 	count = 0;
-	while(input != "EXIT")
+	while (input.compare("EXIT"))
 	{
-		if (input == "ADD")
+		if (input.compare("ADD") == 0)
 		{
+			std::cout << input;
 			pb.create_new_contact(count);
 			count++;
 		}
-		else if (input == "SEARCH")
+		else if (input.compare("SEARCH") == 0)
 		{
 			pb.show_all();
 			pb.show_one();
 		}
-		std::cin >> input;
+		std::getline(std::cin, input);
 	}
 	return (0);
 }

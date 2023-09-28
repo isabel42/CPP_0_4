@@ -1,11 +1,8 @@
 SRCS	= main.cpp \
-			Weapon.cpp \
-			HumanA.cpp \
-			HumanB.cpp
 
 OBJS 	= ${SRCS:.cpp=.o}
 
-NAME 	= unnecessary_violence
+NAME 	= sed_is_for_losers
 
 CC		= g++
 
