@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:02:31 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/09/29 17:05:18 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:07:31 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,38 @@ void Harl::complain(std::string level)
 	void	(Harl::*f[4])(void) = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 	std::string comm[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
-	int write = 0;
 
 	while (i < 4)
 	{
-		if (!comm[i].compare(level) || write > 0)
+		if (!comm[i].compare(level))
 		{
-			std::cout << "[ " << comm[i] << " ]" << std::endl;
-			(this->*f[i])();
-			std::cout << std::endl;
-			write++;
+			switch (i)
+			{
+				case 0:
+					std::cout << "[ " << comm[i] << " ]" << std::endl;
+					(this->*f[i])();
+					std::cout << std::endl;
+					i++;
+				case 1:
+					std::cout << "[ " << comm[i] << " ]" << std::endl;
+					(this->*f[i])();
+					std::cout << std::endl;
+					i++;
+				case 2:
+					std::cout << "[ " << comm[i] << " ]" << std::endl;
+					(this->*f[i])();
+					std::cout << std::endl;
+					i++;
+				case 3:
+					std::cout << "[ " << comm[i] << " ]" << std::endl;
+					(this->*f[i])();
+					std::cout << std::endl;
+					break;
+					i++;
+			}
 		}
+		else if (i == 3)
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		i++;
 	}
-	if (write == 0)
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-
 }
