@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   zombieHorder.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 18:15:13 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/06 17:07:07 by itovar-n         ###   ########.fr       */
+/*   Created: 2023/09/25 15:15:11 by itovar-n          #+#    #+#             */
+/*   Updated: 2023/09/25 15:15:11 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+# include "Zombie.hpp"
 
-# include <iostream>
-# include <iomanip>
 
-class Zombie
+Zombie* zombieHorde( int N, std::string name )
 {
-	private: 
-		std::string name;
+	Zombie *zombies;
 	
-	public:
-		Zombie();
-		~Zombie();
-		void set_name(std::string name);
-		void announce( void );
-};
+	zombies = new Zombie[N];
 
-Zombie* zombieHorde( int N, std::string name );
-
-# endif	
+}

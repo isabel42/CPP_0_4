@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 18:15:13 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/06 17:07:07 by itovar-n         ###   ########.fr       */
+/*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
+/*   Updated: 2023/11/06 17:35:08 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # include <iostream>
 # include <iomanip>
 
-class Zombie
+class Fixed
 {
-	private: 
-		std::string name;
-	
+	private:
+		int value; 
+		static const int fract = 8;
+
 	public:
-		Zombie();
-		~Zombie();
-		void set_name(std::string name);
-		void announce( void );
+		Fixed();
+		~Fixed();
+		Fixed (Fixed const &src);
+		Fixed & operator=( Fixed const & src);
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
+		
+	
 };
 
-Zombie* zombieHorde( int N, std::string name );
-
-# endif	
+# endif
