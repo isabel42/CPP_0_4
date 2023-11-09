@@ -6,14 +6,14 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:19:22 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/09 15:26:39 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:32:17 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "DiamondTrap.hpp"
 
 
-DiamondTrap::DiamondTrap(): ClapTrap("defaultDT_clap_trap") 
+DiamondTrap::DiamondTrap(): ClapTrap() 
 {
 	this->name = "DefalutDT";
 	this->hit = FragTrap::hit;
