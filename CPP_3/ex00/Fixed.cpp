@@ -6,11 +6,12 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:19:22 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/09 09:38:44 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/06 17:58:45 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Fixed.hpp"
+
 
 int Fixed::getRawBits( void ) const
 {
@@ -47,37 +48,5 @@ Fixed & Fixed::operator=( Fixed const & src)
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->value = (src.getRawBits());
 	return (*this);
-}
-
-// ---------- // 
-
-Fixed::Fixed(int arg_value_int)
-{
-	std::cout << "Int constructor called" << std::endl;
-	this->value =  arg_value_int << this->fract;
-}
-
-Fixed::Fixed(float arg_value_float)
-{
-	std::cout << "Float constructor called" << std::endl;
-	this->value =  (int)(roundf(arg_value_float * (1 << this->fract)));
-}
-
-float Fixed::toFloat( void ) const
-{
-	float	f;
-	f = (float) this->value / (1 << this->fract);
-	return (f);
-}
-
-int Fixed::toInt( void ) const
-{
-	return(this->value >> this->fract);
-}
-
-std::ostream & operator<<( std::ostream & o, Fixed const & src)
-{
-	o << src.toFloat();
-	return (o);
 }
 

@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:19:22 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/08 15:46:48 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/09 09:38:03 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ Fixed::Fixed(int arg_value_int)
 Fixed::Fixed(float arg_value_float)
 {
 	// std::cout << "Float constructor called" << std::endl;
-	this->value =  (int)(round(arg_value_float * (1 << this->fract)));
+	this->value =  (int)(roundf(arg_value_float * (1 << this->fract)));
 }
 
 float Fixed::toFloat( void ) const
