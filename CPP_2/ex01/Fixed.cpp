@@ -6,12 +6,11 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:19:22 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/06 22:52:01 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:54:01 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Fixed.hpp"
-
 
 int Fixed::getRawBits( void ) const
 {
@@ -74,5 +73,11 @@ float Fixed::toFloat( void ) const
 int Fixed::toInt( void ) const
 {
 	return(this->value >> this->fract);
+}
+
+std::ostream & operator<<( std::ostream & o, Fixed const & src)
+{
+	o << src.toFloat();
+	return (o);
 }
 
