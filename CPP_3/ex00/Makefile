@@ -1,9 +1,9 @@
 SRCS	= main.cpp \
-				Fixed.cpp 
+				ClapTrap.cpp 
 
 OBJS 	= ${SRCS:.cpp=.o}
 
-NAME 	= Ortho
+NAME 	= a.out
 
 CC		= g++
 
