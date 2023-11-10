@@ -1,5 +1,9 @@
 SRCS	= main.cpp \
-				Fixed.cpp 
+				Animal.cpp \
+				Dog.cpp \
+				Cat.cpp \
+				WrongAnimal.cpp\
+				WrongCat.cpp
 
 OBJS 	= ${SRCS:.cpp=.o}
 
@@ -15,7 +19,7 @@ CFLAGS	= -Wextra -Wall -Werror -std=c++98
 			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}: 	${OBJS}
-			${CC} ${OBJS} -o ${NAME}
+			${CC} ${OBJS}
 
 all:		${NAME}
 

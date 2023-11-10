@@ -1,5 +1,5 @@
 SRCS	= main.cpp \
-				Fixed.cpp 
+				ClapTrap.cpp 
 
 OBJS 	= ${SRCS:.cpp=.o}
 
@@ -15,7 +15,7 @@ CFLAGS	= -Wextra -Wall -Werror -std=c++98
 			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}: 	${OBJS}
-			${CC} ${OBJS} -o ${NAME}
+			${CC} ${OBJS}
 
 all:		${NAME}
 

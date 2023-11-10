@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   DiamondFrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/08 11:53:16 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:24:05 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include <iostream>
 # include <iomanip>
-#include <cmath>
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class Fixed
+class DiamondTrap : public FragTrap,  public ScavTrap
 {
 	private:
-		int value; 
-		static const int fract = 8;
+		std::string name;
 
 	public:
-		Fixed();
-		~Fixed();
-		Fixed (Fixed const &src);
-		Fixed(int const value);
-		Fixed(float const value);
-		Fixed & operator=( Fixed const & src);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap (DiamondTrap const &src);
+		~DiamondTrap();
+		DiamondTrap & operator=( DiamondTrap const & src);
+		void attack(const std::string & target);
+		void whoAmI();
 };
-
-std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
 
 # endif

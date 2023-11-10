@@ -10,23 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main( void )
+int main( void ) 
 {
-	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed d( b );
+	std::cout << "### TESTING CLAPTRAP ###\n" << std::endl;
+	{
+		std::cout << "\033[34mConstructing\033[0m" << std::endl;
+		ClapTrap a;
+		ClapTrap b("Cody");
 
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+		std::cout << "\033[34mTesting\033[0m" << std::endl;
+		a.attack("some other robot");
+		a.takeDamage(10);
+		a.takeDamage(10);
+		a.beRepaired(5);
+		a.attack("some other other robot");
+		b.beRepaired(3);
+		for (int i = 0; i < 12; i++)
+			b.attack("Cody-clone");
+		b.beRepaired(3);
+		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
+	}
+	return (0);
 }

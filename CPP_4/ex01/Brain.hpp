@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/08 11:53:16 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:04:45 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <iomanip>
-#include <cmath>
 
-class Fixed
+class Brain
 {
-	private:
-		int value; 
-		static const int fract = 8;
+	protected:
+		std::string *ideas;
 
 	public:
-		Fixed();
-		~Fixed();
-		Fixed (Fixed const &src);
-		Fixed(int const value);
-		Fixed(float const value);
-		Fixed & operator=( Fixed const & src);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		Brain();
+		Brain (Brain const &src);
+		~Brain();
+		Brain & operator=( Brain const & src);
+		
+	
 };
-
-std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
 
 # endif

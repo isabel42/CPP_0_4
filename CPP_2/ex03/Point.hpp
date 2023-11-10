@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/08 11:53:16 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:51:44 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
 # include <iostream>
 # include <iomanip>
-#include <cmath>
+# include <cmath>
+# include "Fixed.hpp"
 
-class Fixed
+class Point
 {
 	private:
-		int value; 
-		static const int fract = 8;
+		Fixed const x; 
+		Fixed const y; 
 
 	public:
-		Fixed();
-		~Fixed();
-		Fixed (Fixed const &src);
-		Fixed(int const value);
-		Fixed(float const value);
-		Fixed & operator=( Fixed const & src);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		Point();
+		Point(float const x, float const y);
+		Point(Fixed const x, Fixed const y);
+		~Point();
+		Point (Point const &src);
+		Point & operator=( Point & src);
+		Fixed operator|( Point const & src);
+		// Point operator-( Point const & src);
+		Fixed const getX (void) const; 
+		Fixed const getY (void) const; 
 };
 
-std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+
 
 # endif

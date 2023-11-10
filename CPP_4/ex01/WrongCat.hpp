@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/08 11:53:16 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/10 10:11:33 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
 # include <iomanip>
-#include <cmath>
+# include "WrongAnimal.hpp"
 
-class Fixed
+class WrongCat : public WrongAnimal
 {
 	private:
-		int value; 
-		static const int fract = 8;
 
 	public:
-		Fixed();
-		~Fixed();
-		Fixed (Fixed const &src);
-		Fixed(int const value);
-		Fixed(float const value);
-		Fixed & operator=( Fixed const & src);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		WrongCat();
+		WrongCat (WrongCat const &src);
+		~WrongCat();
+		WrongCat & operator=( WrongCat const & src);
+		void makeSound() const;
+		
+	
 };
-
-std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
 
 # endif

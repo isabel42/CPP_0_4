@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/08 11:53:16 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:04:45 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include <iomanip>
-#include <cmath>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Fixed
+class Cat : public Animal
 {
 	private:
-		int value; 
-		static const int fract = 8;
+		Brain *cerveau;
 
 	public:
-		Fixed();
-		~Fixed();
-		Fixed (Fixed const &src);
-		Fixed(int const value);
-		Fixed(float const value);
-		Fixed & operator=( Fixed const & src);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		Cat();
+		Cat (Cat const &src);
+		~Cat();
+		Cat & operator=( Cat const & src);
+		virtual void makeSound() const;
+		
+	
 };
-
-std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
 
 # endif
