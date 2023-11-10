@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:27:38 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/10 15:36:27 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:01:17 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,19 @@ int main()
 
 	Dog chien;
 	Cat chat;
-	
 
+	Dog & chien_ref = chien;
+	Cat & chat_ref = chat;
+
+	Dog chien_cp(chien_ref);
+	Cat chat_cp(chat_ref);
 	
-	system("leaks a.out");
+	Dog & chien_cp_ref = chien_cp;
+	Cat & chat_cp_ref = chat_cp;
+	
+	chien.compareTo(chien_cp_ref);
+	chat.compareTo(chat_cp_ref);
+	
+	// system("leaks a.out");
+	return(0);
 }

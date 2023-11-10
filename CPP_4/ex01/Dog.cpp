@@ -35,6 +35,7 @@ Dog & Dog::operator=( Dog const & src)
 {
 	std::cout << "Dog Copy assignment operator called." << std::endl;
 	this->type = src.type;
+	this->cerveau = new Brain(*(src.cerveau));
 	return (*this);
 }
 

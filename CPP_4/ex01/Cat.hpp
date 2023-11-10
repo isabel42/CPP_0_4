@@ -29,6 +29,7 @@ class Cat : public Animal
 		~Cat();
 		Cat & operator=( Cat const & src);
 		virtual void makeSound() const;
+		void compareTo(Cat const & other_cat) const;
 		
 	
 };
