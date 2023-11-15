@@ -12,7 +12,7 @@
 
 # include "Dog.hpp"
 
-Dog::Dog() : Animal ()
+Dog::Dog() : AAnimal ()
 {
 	this->type = "Dog";
 	this->cerveau = new Brain();
