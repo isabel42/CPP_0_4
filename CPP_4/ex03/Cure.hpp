@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                        :+:      :+:    :+:   */
+/*   Cure.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include <iostream>
 # include <iomanip>
-# include "ICharacter.hpp" 
+# include "AMateria.hpp"
 
-class AMateria
+class Cure : public AMateria
 {
-	protected:
+	private:
 		std::string type;
 
 	public:
-		AMateria();
-		AMateria(std::string const & type);
-		AMateria (AMateria const &src);
-		virtual ~AMateria();
-		AMateria & operator=( AMateria const & src);
+		Cure();
+		Cure (Cure const &src);
+		~Cure();
+		Cure & operator=( Cure const & src);
 
-		std::string const & getType() const; //Returns the materia type
-		
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		Cure* clone() const;
+		void use(ICharacter& target);
 	
 };
 

@@ -1,5 +1,9 @@
 SRCS	= main.cpp \
-				AMateria.cpp 
+				AMateria.cpp \
+				Ice.cpp \
+				Cure.cpp \
+				Character.cpp
+
 OBJS 	= ${SRCS:.cpp=.o}
 
 NAME 	= a.out
