@@ -19,7 +19,7 @@ Ice::Ice() : type("ice")
 
 Ice::~Ice()
 {
-	std::cout << "Ice Destructor called." <<std::endl;
+	std::cout << "Ice destructor called." <<std::endl;
 }
 
 Ice::Ice(Ice const &src)

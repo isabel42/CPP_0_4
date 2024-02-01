@@ -12,19 +12,19 @@
 
 # include "AMateria.hpp"
 
-AMateria::AMateria()
+AMateria::AMateria(std::string const & type): type(type)
 {
-	std::cout << "AMateria default constructor called." <<std::endl;
+	std::cout << "AMateria based on type constructor called." <<std::endl;
 }
 
-AMateria::AMateria(std::string const & type): type(type)
+AMateria::AMateria()
 {
 	std::cout << "AMateria default constructor called." <<std::endl;
 }
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria Destructor called." <<std::endl;
+	std::cout << "AMateria destructor called." <<std::endl;
 }
 
 AMateria::AMateria(AMateria const &src): type(src.type)
