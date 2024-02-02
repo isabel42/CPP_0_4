@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                        :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 16:21:29 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/11 10:45:06 by itovar-n         ###   ########.fr       */
+/*   Created: 2024/02/01 15:28:30 by itovar-n          #+#    #+#             */
+/*   Updated: 2024/02/02 15:42:58 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 # define ICE_HPP
-
-# include <iostream>
-# include <iomanip>
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 
 class Ice : public AMateria
 {
-	private:
-		std::string type;
-
+	private	: 
+	
 	public:
 		Ice();
-		Ice (Ice const &src);
 		~Ice();
-		Ice & operator=( Ice const & src);
+		Ice & operator=(Ice const & src);
+		Ice (Ice const &src);
 
-		Ice* clone() const;
-		void use(ICharacter& target);
-	
+		Ice *clone() const;
+		void use (ICharacter& target);
 };
 
-# endif
+#endif

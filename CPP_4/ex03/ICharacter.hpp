@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 16:05:54 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/15 16:12:55 by itovar-n         ###   ########.fr       */
+/*   Created: 2024/02/01 16:24:54 by itovar-n          #+#    #+#             */
+/*   Updated: 2024/02/02 15:21:56 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include <string>
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 
-class	AMateria;
+class AMateria;
 
 class ICharacter
 {

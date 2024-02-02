@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                        :+:      :+:    :+:   */
+/*   Cure.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 17:19:22 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/11/11 10:44:49 by itovar-n         ###   ########.fr       */
+/*   Created: 2024/02/01 15:36:42 by itovar-n          #+#    #+#             */
+/*   Updated: 2024/02/01 16:07:10 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Cure.hpp"
+#include "Cure.hpp"
 
-Cure::Cure() : type("Cure")
+Cure::Cure() : AMateria ("cure")
 {
-	std::cout << "Cure default constructor called." <<std::endl;
+	std::cout << "Cure default constructor called." << std::endl;
 }
 
 Cure::~Cure()
 {
-	std::cout << "Cure Destructor called." <<std::endl;
+	std::cout << "Cure default destructor called." << std::endl;
+}
+
+Cure & Cure::operator=(Cure const &src)
+{
+	std::cout << "Cure operator = called." << std::endl;
+	this->type = src.type;
+	return (*this);
 }
 
 Cure::Cure(Cure const &src)
 {
-	std::cout << "Cure Copy constructor called." <<std::endl;
-	*this = src;
+	std::cout << "Cure copy constructor called." << std::endl;  
+	this->type = src.type;
 }
 
-Cure & Cure::operator=( Cure const & src)
+Cure * Cure::clone() const{
+	Cure *cln = new Cure;
+	return (cln);
+}
+
+void Cure::use (ICharacter &target)
 {
-	std::cout << "Cure Copy assignment operator called " << src.getType() << "." << std::endl;
-	return (*this);
+	std::string name = target.getName();
+	std::cout << "* heals " << name << "'s wounds *" << std::endl;
 }
 
-Cure* Cure::clone() const
-{
-	Cure *cure = new Cure();
-	return (cure);
-}
 
-void Cure::use(ICharacter& target)
-{
-	std::string target_name = target.getName();
-
-	std::cout << "* heals " << target_name << "wounds" << std::endl;
-}

@@ -5,92 +5,133 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 17:34:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2024/01/22 15:58:15 by itovar-n         ###   ########.fr       */
+/*   Created: 2024/02/01 17:15:04 by itovar-n          #+#    #+#             */
+/*   Updated: 2024/02/02 15:58:30 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Character.hpp"
+#include "Character.hpp"
 
-Character::Character() : stock(new AMateria[4])
+Character::Character(): name("Default")
 {
-	int i;
-
-	i = 0;
-	while (i < 4)
-	{
+	std::cout << "Character default constructor called." << std::endl;
+	for (int i = 0; i < 4; i++)
 		this->stock[i] = NULL;
-		i++;
-	}
-	std::cout << "Character constructor called." <<std::endl;
 }
 
 Character::~Character()
 {
-	std::cout << "Character destructor called." <<std::endl;
-}
-
-Character::Character(std::string name) : name(name), stock(new AMateria[4])
-{
-	int i;
-
-	i = 0;
-	while (i < 4)
+	for(int i = 0 ; i < 4 ; i++)
 	{
-		this->stock[i] = NULL;
-		i++;
+		if (this->stock[i] != NULL)
+			delete this->stock[i];
 	}
-	std::cout << "Character constructor based on name called." <<std::endl;
+	std::cout << "Character " << this->name << " default destructor called." << std::endl;
 }
 
-Character & Character::operator=(Character const &src)
+Character::Character(std::string given_name) : name(given_name)
 {
-	std::cout << "Character copy assignment operator called." << std:::endl;
-	return(*this);
+	std::cout << "Character based on name " << this->name << " constructor called." << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->stock[i] = NULL;
 }
 
-Character::Character(Character const &src)
+Character & Character::operator=(Character const & src)
 {
-	std::cout << "Character copy constructor called." <<std::endl;
+	std::cout << "Character assignment operator overload called." << std::endl;
+	this->name = src.name;
+	for(int i = 0 ; i < 4 ; i++)
+	{
+		if (this->stock[i] != NULL)
+		{
+			delete this->stock[i];
+			this->stock[i] = NULL;
+		}
+		if (src.stock[i] != NULL)
+			this->stock[i] = src.stock[i]->clone();
+	}
+	return (*this);
+}
+
+Character::Character(Character const & src) : name(src.name)
+{
+	std::cout << "Character copy constructor called" << std::endl;
 	*this = src;
 }
 
 std::string const & Character::getName() const
 {
-	std::string &cp_name;
-
-	cp_name = this->name;
-	std::cout << "Get name fct called." <<std::endl;
-	return (cp_name);
+	return (this->name);
 }
 
 void Character::equip(AMateria* m)
 {
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (i < 4 && m[j])
+	if (!m)
+	{
+		std::cout << "Materia does not exist!" << std::endl;
+		return ;
+	}
+	for (int i = 0; i < 4; i++)
 	{
 		if (this->stock[i] == NULL)
 		{
-			this->stock[i] = m[j];
-			j++;
+			this->stock[i] = m;
+			std::cout << "Materia " << m->getType() << " equipped in position " << i << "." << std::endl;
+			return ;
 		}
-		i++;
 	}
-	std::cout << "Equip fct called." <<std::endl;
-	
+	std::cout << "Character is full and cannot hold any more materias." << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	this->stock[idx] = NULL;
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << "Invalid index." << std::endl;
+		return;
+	}
+	if (this->stock[idx] != NULL)
+	{
+		this->stock[idx] = NULL;
+		std::cout << "Position "<< idx << " unequiped." << std::endl;	
+	}
+	else
+		std::cout << "Position stated is already empty." << std::endl;
 }
 
-
-void Character::use(int idx, ICharacter& target)
+void Character::use(int idx, ICharacter & target)
 {
-	this->stock[idx].use;
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << "Invalid index." << std::endl;
+		return;
+	}
+	if (stock[idx] != NULL)
+	{
+		this->stock[idx]->use(target);
+		std::cout << "Material in idx " << idx << "used by character " << target.getName() << ":";
+	}
+	else
+		std::cout << "Material in idx " << idx << "or " << target.getName() << " does not exit." << std::endl;
+}
+
+void	Character::displayInventory(void) const
+{
+	std::cout << this->name << "'s inventory contains:" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << "\t[" << i << "] ";
+		if (this->stock[i] == NULL)
+			std::cout << "Empty slot.";
+		else
+			std::cout << this->stock[i]->getType() << " materia.";
+		std::cout << std::endl;
+	}
+	return ;
+}
+
+void	Character::setName(std::string const & newName)
+{
+	this->name = newName;
+	return ;
 }
